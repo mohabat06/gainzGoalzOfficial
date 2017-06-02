@@ -1,6 +1,6 @@
 webpackJsonp([2,4],{
 
-/***/ 12:
+/***/ 10:
 /***/ (function(module, exports) {
 
 /*
@@ -83,22 +83,22 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-/***/ 153:
+/***/ 154:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(12)(false);
+exports = module.exports = __webpack_require__(10)(false);
 // imports
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n/* Fit images into screen */\n\n.topnav {\n    background-color: #333;\n    overflow: hidden;\n}\n\n\n.test1{\n    background:url(" + __webpack_require__(196) + ") no-repeat;\n    height: 300px;\n    background-size: cover;\n}\n\n.test1 img{\n    height: 75px;\n}\n\n.test2{\n    background: url(" + __webpack_require__(198) + ") no-repeat;\n    height:300px;\n    background-size: cover;\n}\n\n.test3{\n    background: url(" + __webpack_require__(197) + ") no-repeat;\n    height: 300px;\n    background-size: cover;\n}\n\nh1 {\n\tfont-style: normal;\n\tfont-variant: normal;\n\tfont-weight: bold;\n\tline-height: 58.8px;\n}\n\nh1 span{\n    font-family: 'Monoton', cursive;\n\tfont-size: 150px;\n    color: white;\n    letter-spacing: -1 px;\n    position: absolute;\n    text-align: center;\n    opacity: 0.8;\n}\n\nh1 a{\n    font-family: 'Monoton', cursive;\n\tfont-size: 140px;\n    color: black;\n    letter-spacing: -1 px;\n    position: absolute;\n    text-align: center;\n    opacity: 0.8;\n}\n\nh2 span{\n    font-family: 'Permanent Marker', cursive;\n    font-size: 20px;\n    color: white; \n}\n\n/* Style the links inside the navigation bar */\n.topnav a {\n    float: left;\n    display: block;\n    color: #f2f2f2;\n    text-align: center;\n    padding: 14px 16px;\n    text-decoration: none;\n    font-size: 17px;\n}\n\n/* Change the color of links on hover */\n.topnav a:hover {\n    background-color: #ddd;\n    color: black;\n}\n\n/* Add a color to the active/current link */\n.topnav a.active {\n    background-color: #4CAF50;\n    color: white;\n}\n\n\n.cutTitle\n{\n    top: 70px;\n}\n\n.GGTitle\n{\n    padding-top: -50px;\n}", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 195:
+/***/ 198:
 /***/ (function(module, exports) {
 
 /*
@@ -351,45 +351,24 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 196:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "blueberries.effb962823da75bf5778.jpg";
-
-/***/ }),
-
-/***/ 197:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "bread.c8952e50f7860b12d05f.jpg";
-
-/***/ }),
-
-/***/ 198:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "salmon.2c9a6c885870d7707d72.jpg";
-
-/***/ }),
-
 /***/ 202:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(91);
+module.exports = __webpack_require__(92);
 
 
 /***/ }),
 
-/***/ 91:
+/***/ 92:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(153);
+var content = __webpack_require__(154);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(195)(content, {});
+var update = __webpack_require__(198)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
