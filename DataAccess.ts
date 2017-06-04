@@ -1,5 +1,6 @@
 import Mongoose = require("mongoose");
 
+//
 class DataAccess {
     static mongooseInstance: any;
     static mongooseConnection: Mongoose.Connection;
