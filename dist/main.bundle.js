@@ -291,7 +291,7 @@ module.exports = "\n        <div class=\"row test1\">\n        <div class=\"col-
 /***/ 169:
 /***/ (function(module, exports) {
 
-module.exports = " <div class=\"login\">\n\t<h1>Login</h1>\n    <form method=\"post\">\n    \t<input type=\"text\" name=\"u\" placeholder=\"Username\" required=\"required\" />\n        <input type=\"password\" name=\"p\" placeholder=\"Password\" required=\"required\" />\n        <button type=\"submit\" class=\"btn btn-primary btn-block btn-large\">Login</button>\n    </form>\n</div>\n  \n    <script src=\"js/index.js\"></script>\n"
+module.exports = " <div class=\"login\">\n\t<h1>Login</h1>\n    <form method=\"post\">\n    \t<input type=\"text\" name=\"u\" placeholder=\"Username\" required=\"required\" />\n        <input type=\"password\" name=\"p\" placeholder=\"Password\" required=\"required\" />\n        <button type=\"submit\" class=\"btn btn-primary btn-block btn-large\">Login</button>\n    </form>\n    <br>\n    <a href=\"/auth/google\" class=\"btn btn-default\">Login with Google</a>\n</div>\n  \n    <script src=\"js/index.js\"></script>\n"
 
 /***/ }),
 

@@ -3,6 +3,8 @@ exports.__esModule = true;
 var express = require("express");
 var logger = require("morgan");
 var bodyParser = require("body-parser");
+var session = require("express-session");
+var UserModel_1 = require("./model/UserModel");
 var RecipeModel_1 = require("./model/RecipeModel");
 // Creates and configures an ExpressJS web server.
 var App = (function () {
@@ -13,12 +15,20 @@ var App = (function () {
         this.routes();
         this.idGenerator = 100;
         this.recipes = new RecipeModel_1["default"]();
+        this.Users = new UserModel_1["default"]();
     }
     // Configure Express middleware.
     App.prototype.middleware = function () {
         this.express.use(logger('dev'));
         this.express.use(bodyParser.json());
         this.express.use(bodyParser.urlencoded({ extended: false }));
+        this.express.use(session({ secret: 'keyboard cat' }));
+    };
+    App.prototype.validateAuth = function (req, res, next) {
+        if (req.isAuthenticated()) {
+            return next();
+        }
+        res.redirect('/');
     };
     // Configure API endpoints.
     App.prototype.routes = function () {
@@ -29,7 +39,7 @@ var App = (function () {
             res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
             next();
         });
-        router.post('/app/recipe/', function (req, res) {
+        router.post('/app/recipe/', this.validateAuth, function (req, res) {
             console.log(req.body);
             var jsonObj = req.body;
             jsonObj.recipeId = _this.idGenerator;
@@ -52,6 +62,10 @@ var App = (function () {
         });
         router.get('*', function (req, res) {
             res.sendFile(__dirname + '/dist/index.html');
+        });
+        router.get('/auth/userdata', this.validateAuth, function (req, res) {
+            console.log('user object:' + JSON.stringify(req.user));
+            res.json(req.user);
         });
         /*
             this.express.use('/app/json/', express.static(__dirname+'/app/json'));

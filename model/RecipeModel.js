@@ -18,7 +18,8 @@ var RecipeModel = (function () {
             protein: Number,
             fat: Number,
             carbs: Number,
-            sugar: Number
+            sugar: Number,
+            created_by: String
         }, { collection: 'recipes' });
     };
     RecipeModel.prototype.createModel = function () {
