@@ -5,9 +5,12 @@ import * as url from 'url';
 import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 
+
+import UserModel from '.model/UserModel';
 import RecipeModel from './model/RecipeModel';
 
 import DataAccess from './DataAccess';
+
 
 // Creates and configures an ExpressJS web server.
 class App {
@@ -16,6 +19,9 @@ class App {
   public express: express.Application;
   public recipes:RecipeModel;
   public idGenerator:number;
+  public Users: UserModel;
+  public idGeneratorUser: number;
+ 
 
   //Run configuration methods on the Express instance.
   constructor() {
