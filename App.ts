@@ -3,8 +3,10 @@ import * as express from 'express';
 import * as logger from 'morgan';
 import * as url from 'url';
 import * as bodyParser from 'body-parser';
+import * as session from 'express-session';
 
 import RecipeModel from './model/RecipeModel';
+
 import DataAccess from './DataAccess';
 
 // Creates and configures an ExpressJS web server.
