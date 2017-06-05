@@ -278,7 +278,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var RecipeService = (function () {
     function RecipeService(http) {
         this.http = http;
-        this.host = 'http://localhost:8080';
+        this.host = '';
     }
     RecipeService.prototype.getAllRecipes = function () {
         return this.http.get(this.host + '/app/recipe')
