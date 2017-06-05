@@ -1,3 +1,2 @@
-# gainzSaas
-"# gainzGoalz" 
+
 # gainzGoalzOfficial
