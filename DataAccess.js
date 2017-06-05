@@ -18,6 +18,6 @@ var DataAccess = (function () {
     };
     return DataAccess;
 }());
-DataAccess.DB_CONNECTION_STRING = 'mongodb://admintest:Amyandtheboyz@ds064799.mlab.com:64799/gainzgoalzdb';
+DataAccess.DB_CONNECTION_STRING = process.env.CUSTOMCONNSTR_MONGOLAB_URI;
 DataAccess.connect();
 exports["default"] = DataAccess;
