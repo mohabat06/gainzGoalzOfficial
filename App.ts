@@ -70,7 +70,7 @@ class App {
 
     router.get('/auth/google/callback', 
         passport.authenticate('google', 
-            { successRedirect: '/recipe', failureRedirect: '/'
+            { successRedirect: '/app/recipe', failureRedirect: '/'
             }
         )
     );

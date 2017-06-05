@@ -44,7 +44,7 @@ class App {
              next();
          }); */
         router.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }));
-        router.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/recipe', failureRedirect: '/'
+        router.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/app/recipe', failureRedirect: '/'
         }));
         router.get('/auth/userdata', this.validateAuth, (req, res) => {
             console.log('user object:' + JSON.stringify(req.user));
