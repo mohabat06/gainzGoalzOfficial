@@ -25,7 +25,8 @@ export default class RecipeModel {
                 protein: Number,
                 fat: Number,
                 carbs: Number,
-                sugar: Number
+                sugar: Number,
+                created_by: String
             }, {collection: 'recipes'}
         );
     }
