@@ -49,7 +49,7 @@ class App {
 
     private validateAuth(req, res, next):void {
     if (req.isAuthenticated()) { return next(); }
-        res.redirect('/home');
+        res.redirect('/login');
   }
 
   // Configure API endpoints.

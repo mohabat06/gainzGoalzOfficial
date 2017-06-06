@@ -1,35 +1,34 @@
 "use strict";
-exports.__esModule = true;
-var DataAccess_1 = require("../DataAccess");
-var mongoose = DataAccess_1["default"].mongooseInstance;
-var mongooseConnection = DataAccess_1["default"].mongooseConnection;
-var UserModel = (function () {
-    function UserModel() {
+Object.defineProperty(exports, "__esModule", { value: true });
+const DataAccess_1 = require("../DataAccess");
+var mongoose = DataAccess_1.default.mongooseInstance;
+var mongooseConnection = DataAccess_1.default.mongooseConnection;
+class UserModel {
+    constructor() {
         this.createSchema();
         this.createModel();
     }
-    UserModel.prototype.createSchema = function () {
+    createSchema() {
         this.schema = mongoose.Schema({
             userId: String,
             name: String,
             password: String
         }, { collection: 'user' });
-    };
-    UserModel.prototype.createModel = function () {
+    }
+    createModel() {
         this.model = mongooseConnection.model("User", this.schema);
-    };
-    UserModel.prototype.retrieveUserDetails = function (response, filter) {
+    }
+    retrieveUserDetails(response, filter) {
         var query = this.model.findOne(filter);
-        query.exec(function (err, user) {
+        query.exec((err, user) => {
             response.json(user.userId);
         });
-    };
-    UserModel.prototype.retrieveAllUsers = function (response, filter) {
+    }
+    retrieveAllUsers(response, filter) {
         var query = this.model.find(filter);
-        query.exec(function (err, userList) {
+        query.exec((err, userList) => {
             response.json(userList);
         });
-    };
-    return UserModel;
-}());
-exports["default"] = UserModel;
+    }
+}
+exports.default = UserModel;
