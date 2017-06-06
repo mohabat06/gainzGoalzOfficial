@@ -80,7 +80,7 @@ class App {
         res.json(req.user);
     });
 
-    router.post('/app/recipe/', this.validateAuth, (req, res) => {
+    router.post('/app/recipe/', (req, res) => {
         console.log(req.body);
         var jsonObj = req.body;
         jsonObj.recipeId = this.idGenerator;
@@ -99,7 +99,7 @@ class App {
         this.recipes.retrieveSingleRecipe(res, {recipeId: id});
     });
 
-    router.get('/app/recipe/', (req, res) => {
+    router.get('/app/recipe/', this.validateAuth, (req, res) => {
         console.log('Query All recipe');
         this.recipes.retrieveAllRecipes(res);
     });
