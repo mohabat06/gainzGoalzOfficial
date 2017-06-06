@@ -614,13 +614,13 @@ var AddRecipeComponent = (function () {
                 recipeTitle: 'Test',
                 recipeId: 400,
                 ingredients: 'Testing Stuff',
-                instructions: this.createdUser,
+                instructions: 'Do nothing',
                 calories: 500,
                 protein: 30,
                 fat: 20,
                 carbs: 10,
                 sugar: 10,
-                created_by: this.createdUser
+                created_by: JSON.parse(this.createdUser)
             };
         this.RecipeService.createRecipe(this.testRecipe);
     }
