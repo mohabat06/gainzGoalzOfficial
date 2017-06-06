@@ -50,7 +50,7 @@ class App {
             console.log('user object:' + JSON.stringify(req.user));
             res.json(req.user);
         });
-        router.post('/app/recipe/', (req, res) => {
+        router.post('/app/recipe/', this.validateAuth, (req, res) => {
             console.log(req.body);
             var jsonObj = req.body;
             jsonObj.recipeId = this.idGenerator;
@@ -67,7 +67,7 @@ class App {
             console.log('Query single recipe with id: ' + id);
             this.recipes.retrieveSingleRecipe(res, { recipeId: id });
         });
-        router.get('/app/recipe/', this.validateAuth, (req, res) => {
+        router.get('/app/recipe/', (req, res) => {
             console.log('Query All recipe');
             this.recipes.retrieveAllRecipes(res);
         });
