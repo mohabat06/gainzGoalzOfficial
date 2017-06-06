@@ -8,6 +8,7 @@ const UserModel_1 = require("./model/UserModel");
 const RecipeModel_1 = require("./model/RecipeModel");
 const GooglePassport_1 = require("./GooglePassport");
 let passport = require('passport');
+let randomID = require('random-int');
 // Creates and configures an ExpressJS web server.
 class App {
     //Run configuration methods on the Express instance.
@@ -15,7 +16,7 @@ class App {
         this.express = express();
         this.middleware();
         this.routes();
-        this.idGenerator = 100;
+        this.idGenerator = randomID(99999999999999);
         this.recipes = new RecipeModel_1.default();
         this.Users = new UserModel_1.default();
         this.googlePassportObj = new GooglePassport_1.default;

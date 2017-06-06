@@ -12,7 +12,9 @@ import RecipeModel from './model/RecipeModel';
 import DataAccess from './DataAccess';
 import GooglePassportObj from './GooglePassport';
 
+
 let passport = require('passport');
+let randomID = require('random-int');
 
 // Creates and configures an ExpressJS web server.
 class App {
@@ -31,7 +33,7 @@ class App {
     this.express = express();
     this.middleware();
     this.routes();
-    this.idGenerator = 100;
+    this.idGenerator = randomID(99999999999999);
     this.recipes = new RecipeModel();
     this.Users = new UserModel();
     this.googlePassportObj = new GooglePassportObj;
