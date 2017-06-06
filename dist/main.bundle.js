@@ -608,21 +608,22 @@ var AddRecipeComponent = (function () {
         this.RecipeService = RecipeService;
         this.RecipeService.getUserInfo().subscribe(function (result) {
             _this.createdUser = result.id;
+            _this.testRecipe =
+                {
+                    recipeTitle: 'Test',
+                    recipeId: 400,
+                    ingredients: 'Testing Stuff',
+                    instructions: 'Do nothing',
+                    calories: 500,
+                    protein: 30,
+                    fat: 20,
+                    carbs: 10,
+                    sugar: 10,
+                    created_by: _this.createdUser
+                };
+            console.log('User ID: ' + _this.createdUser);
+            _this.RecipeService.createRecipe(_this.testRecipe);
         }, function () { _this.createdUser = "not logged in"; }, function () { return console.log('REST call' + _this.createdUser); });
-        this.testRecipe =
-            {
-                recipeTitle: 'Test',
-                recipeId: 400,
-                ingredients: 'Testing Stuff',
-                instructions: 'Do nothing',
-                calories: 500,
-                protein: 30,
-                fat: 20,
-                carbs: 10,
-                sugar: 10,
-                created_by: JSON.parse(this.createdUser)
-            };
-        this.RecipeService.createRecipe(this.testRecipe);
     }
     AddRecipeComponent.prototype.createRecipe = function () {
         console.log('json object:' + JSON.stringify(this.testRecipe));
