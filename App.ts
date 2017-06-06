@@ -100,7 +100,7 @@ class App {
         this.recipes.retrieveSingleRecipe(res, {recipeId: id});
     });
 
-    router.get('/app/recipe/:created_by', (req, res) => {
+    router.get('/app/usersrecipes/:created_by', (req, res) => {
         var createdId = req.params.created_by;
         console.log('Query All recipes by user Id: ' + createdId);
         this.recipes.retrieveUserRecipe(res, {created_by: createdId});
