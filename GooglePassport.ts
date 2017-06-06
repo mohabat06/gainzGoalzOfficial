@@ -20,7 +20,6 @@ class GooglePassport {
                 clientID: this.clientId,
                 clientSecret: this.secretId,
                 callbackURL: "http://gainzgoalzoff.azurewebsites.net/auth/google/callback",
-                passReqToCallback: true,
                 profileFields: ['id', 'displayName', 'emails']
             },
             (accessToken, refreshToken, profile, done) => {
