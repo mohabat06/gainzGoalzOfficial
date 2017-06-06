@@ -1156,7 +1156,7 @@ var routes = [
     { path: 'recipe/:recipeId', component: __WEBPACK_IMPORTED_MODULE_2__recipe_details_recipe_details_component__["a" /* RecipeDetailsComponent */] },
     { path: 'add_recipe', component: __WEBPACK_IMPORTED_MODULE_3__add_recipe_add_recipe_component__["a" /* AddRecipeComponent */] },
     { path: 'recipe/:goal', component: __WEBPACK_IMPORTED_MODULE_4__goal_goal_component__["a" /* GoalComponent */] },
-    { path: 'myrecipes/', component: __WEBPACK_IMPORTED_MODULE_7__user_recipes_user_recipes_component__["a" /* UserRecipesComponent */] }
+    { path: 'myrecipes/:userId', component: __WEBPACK_IMPORTED_MODULE_7__user_recipes_user_recipes_component__["a" /* UserRecipesComponent */] }
 ];
 var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* RouterModule */].forRoot(routes);
 //# sourceMappingURL=app-route.js.map
