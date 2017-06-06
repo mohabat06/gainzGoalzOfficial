@@ -44,7 +44,7 @@ class App {
              next();
          }); */
         router.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }));
-        router.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/recipe', failureRedirect: '/s'
+        router.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/recipe', failureRedirect: '/'
         }));
         router.get('/auth/userdata', this.validateAuth, (req, res) => {
             console.log('user object:' + JSON.stringify(req.user));
@@ -66,11 +66,6 @@ class App {
             var id = req.params.recipeId;
             console.log('Query single recipe with id: ' + id);
             this.recipes.retrieveSingleRecipe(res, { recipeId: id });
-        });
-        router.get('/app/recipe/:goal', (req, res) => {
-            var goalId = req.params.goal;
-            console.log('Query goal recipes: ' + goalId);
-            this.recipes.retrieveRecipesByGoal(res, { goal: goalId });
         });
         router.get('/app/recipe/', (req, res) => {
             console.log('Query All recipe');
