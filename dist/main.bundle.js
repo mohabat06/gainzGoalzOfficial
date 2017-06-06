@@ -701,7 +701,7 @@ module.exports = "<h1> {{recipeTitle}}</h1>\n<h2> Ingredients: {{ingredients}} <
 /***/ 182:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" >\n\t<div class=\"panel panel-default\" style=\"border-width: 0px; border-style:solid\">\n\t\t<div class=\"panel-default\">\n\t\t\t<h3>Recipes</h3>\n\t\t</div>\n\t\t<br>\n\t\t<div>\n\t\t\t<div class=\"panel panel-heading\" style=\"border-width: 1px; border-style:solid; border-color:gray;\" *ngFor=\"let result of Recipes; let i = index\">\n\t\t\t\t<!-- Default panel contents -->\n\n\t\t\t\t<urecipe-table [recipe]=\"result\" [index]=\"i\"></urecipe-table>\n\t\t\t\t<!-- Table -->\n\t\t\t</div>\n\n\t\t\t<div ng-click=\"saveItems();\">new list</div>\n\t\t\t\n\t\t</div>\n\t</div>\n</div>"
+module.exports = "<div class=\"container\" >\n\t<div class=\"panel panel-default\" style=\"border-width: 0px; border-style:solid\">\n\t\t<div class=\"panel-default\">\n\t\t\t<h3>My Created Recipes</h3>\n\t\t</div>\n\t\t<br>\n\t\t<div>\n\t\t\t<div class=\"panel panel-heading\" style=\"border-width: 1px; border-style:solid; border-color:gray;\" *ngFor=\"let result of Recipes; let i = index\">\n\t\t\t\t<!-- Default panel contents -->\n\n\t\t\t\t<urecipe-table [recipe]=\"result\" [index]=\"i\"></urecipe-table>\n\t\t\t\t<!-- Table -->\n\t\t\t</div>\n\n\t\t\t<div ng-click=\"saveItems();\">new list</div>\n\t\t\t\n\t\t</div>\n\t</div>\n</div>"
 
 /***/ }),
 
