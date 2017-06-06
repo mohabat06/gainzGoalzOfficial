@@ -31,12 +31,12 @@ describe('Gainz Goalz Recipe List Results', function () {
 		expect(response).to.have.status(200);
         expect(response.body).to.be.an.object;
 		expect(response.body).to.have.length.above(2);
-		expect(response).to.have.headers;
+        expect(response.body).to.be.instanceof(Array);
     });
     
 	it('The first entry in the array has known properties', function(){
 	    expect(requestResult[0]).to.include.keys('recipeTitle');
-	    expect(requestResult[0]).to.have.property('_id');
+	    expect(requestResult[0]).to.have.property('instructions');
 		expect(response).to.have.deep.property('body[0].recipeId', 1);
 		expect(response.body).to.not.be.a.string;
 	});
