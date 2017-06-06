@@ -37,5 +37,11 @@ class RecipeModel {
             response.json(itemArray);
         });
     }
+    retrieveUserRecipe(response, filter) {
+        var query = this.model.find(filter);
+        query.exec((err, itemArray) => {
+            response.json(itemArray);
+        });
+    }
 }
 exports.default = RecipeModel;

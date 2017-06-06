@@ -54,6 +54,7 @@ class App {
             console.log(req.body);
             var jsonObj = req.body;
             jsonObj.recipeId = this.idGenerator;
+            jsonObj.created_by = req.user.id;
             this.recipes.model.create([jsonObj], (err) => {
                 if (err) {
                     console.log('object creation failed');
@@ -66,6 +67,11 @@ class App {
             var id = req.params.recipeId;
             console.log('Query single recipe with id: ' + id);
             this.recipes.retrieveSingleRecipe(res, { recipeId: id });
+        });
+        router.get('/app/recipe/:created_by', (req, res) => {
+            var createdId = req.params.created_by;
+            console.log('Query All recipes by user Id: ' + createdId);
+            this.recipes.retrieveUserRecipe(res, { created_by: createdId });
         });
         router.get('/app/recipe/', (req, res) => {
             console.log('Query All recipe');

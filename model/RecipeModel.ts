@@ -48,4 +48,11 @@ export default class RecipeModel {
             response.json(itemArray);
         });
     }
+
+    public retrieveUserRecipe(response:any, filter:Object) {
+        var query = this.model.find(filter);
+        query.exec( (err, itemArray) => {
+            response.json(itemArray);
+        });
+    }
 }
