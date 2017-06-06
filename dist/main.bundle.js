@@ -489,6 +489,10 @@ var RecipeService = (function () {
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
         return this.http.post(this.host + '/app/recipe/', JSON.stringify(newRecipe), options);
     };
+    RecipeService.prototype.getUserInfo = function () {
+        return this.http.get(this.host + '/auth/userdata')
+            .map(function (response) { return response.json(); });
+    };
     RecipeService.prototype.handleError = function (error) {
         var errMsg = (error.message) ? error.message :
             error.status ? '${error.status} - ${error.statusText}' : 'Server error';
@@ -600,7 +604,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var AddRecipeComponent = (function () {
     function AddRecipeComponent(RecipeService) {
+        var _this = this;
         this.RecipeService = RecipeService;
+        this.RecipeService.getUserInfo().subscribe(function (result) {
+            _this.createdUser = result.id;
+        });
         this.testRecipe =
             {
                 recipeTitle: 'Test',
@@ -612,7 +620,7 @@ var AddRecipeComponent = (function () {
                 fat: 20,
                 carbs: 10,
                 sugar: 10,
-                created_by: "test"
+                created_by: this.createdUser
             };
         this.RecipeService.createRecipe(this.testRecipe);
     }
