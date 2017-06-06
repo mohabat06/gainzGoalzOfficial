@@ -70,7 +70,7 @@ class App {
 
     router.get('/auth/google/callback', 
         passport.authenticate('google', 
-            { successRedirect: '/recipe', failureRedirect: '/'
+            { successRedirect: '/recipe', failureRedirect: '/s'
             }
         )
     );
@@ -99,7 +99,13 @@ class App {
         this.recipes.retrieveSingleRecipe(res, {recipeId: id});
     });
 
-    router.get('/app/recipe/', (req, res) => {
+        router.get('/app/recipe/:goal', (req, res) => {
+        var goalId = req.params.goal;
+        console.log('Query goal recipes: ' + goalId);
+        this.recipes.retrieveRecipesByGoal(res, {goal: goalId});
+    });
+
+    router.get('/app/recipe/', (req, res) => { 
         console.log('Query All recipe');
         this.recipes.retrieveAllRecipes(res);
     });

@@ -26,6 +26,7 @@ export default class RecipeModel {
                 fat: Number,
                 carbs: Number,
                 sugar: Number,
+                goals: String,
                 created_by: String
             }, {collection: 'recipes'}
         );
@@ -44,6 +45,13 @@ export default class RecipeModel {
 
     public retrieveSingleRecipe(response:any, filter:Object) {
         var query = this.model.findOne(filter);
+        query.exec( (err, itemArray) => {
+            response.json(itemArray);
+        });
+    }
+
+    public retrieveRecipesByGoal(response:any, filter:Object): any {
+        var query = this.model.find(filter);
         query.exec( (err, itemArray) => {
             response.json(itemArray);
         });

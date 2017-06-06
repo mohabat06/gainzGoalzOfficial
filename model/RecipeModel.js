@@ -19,6 +19,7 @@ class RecipeModel {
             fat: Number,
             carbs: Number,
             sugar: Number,
+            goals: String,
             created_by: String
         }, { collection: 'recipes' });
     }
@@ -33,6 +34,12 @@ class RecipeModel {
     }
     retrieveSingleRecipe(response, filter) {
         var query = this.model.findOne(filter);
+        query.exec((err, itemArray) => {
+            response.json(itemArray);
+        });
+    }
+    retrieveRecipesByGoal(response, filter) {
+        var query = this.model.find(filter);
         query.exec((err, itemArray) => {
             response.json(itemArray);
         });
