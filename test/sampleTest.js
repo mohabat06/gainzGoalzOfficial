@@ -16,7 +16,7 @@ describe('Test To Do lists result', function () {
 	var response;
 		 
     before(function (done) {
-        chai.request("http://localhost:8080")
+        chai.request("http://gainzgoalzzz/azurewebsite.net")
 			.get("/app/recipe")
 			.end(function (err, res) {
 				requestResult = res.body;
@@ -54,7 +54,7 @@ describe('Test To Do lists result', function () {
                     expect(body[i]).to.have.property('fat');
                     expect(body[i]).to.have.property('carbs');
                     expect(body[i]).to.have.property('sugar');
-                    expect(body[i]).to.have.property('goal');
+                    expect(body[i]).to.have.property('created_by');
                 }
 				return true;
 			});
