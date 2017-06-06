@@ -84,6 +84,7 @@ class App {
         console.log(req.body);
         var jsonObj = req.body;
         jsonObj.recipeId = this.idGenerator;
+        jsonObj.created_by = req.user.id;
         this.recipes.model.create([jsonObj], (err) => {
             if (err) {
                 console.log('object creation failed');
