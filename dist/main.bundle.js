@@ -608,7 +608,7 @@ var AddRecipeComponent = (function () {
         this.RecipeService = RecipeService;
         this.RecipeService.getUserInfo().subscribe(function (result) {
             _this.createdUser = result.id;
-        });
+        }, function () { _this.createdUser = "not logged in"; }, function () { return console.log('REST call' + _this.createdUser); });
         this.testRecipe =
             {
                 recipeTitle: 'Test',
