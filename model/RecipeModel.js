@@ -1,14 +1,14 @@
 "use strict";
-exports.__esModule = true;
-var DataAccess_1 = require("../DataAccess");
-var mongoose = DataAccess_1["default"].mongooseInstance;
-var mongooseConnection = DataAccess_1["default"].mongooseConnection;
-var RecipeModel = (function () {
-    function RecipeModel() {
+Object.defineProperty(exports, "__esModule", { value: true });
+const DataAccess_1 = require("../DataAccess");
+var mongoose = DataAccess_1.default.mongooseInstance;
+var mongooseConnection = DataAccess_1.default.mongooseConnection;
+class RecipeModel {
+    constructor() {
         this.createSchema();
         this.createModel();
     }
-    RecipeModel.prototype.createSchema = function () {
+    createSchema() {
         this.schema = mongoose.Schema({
             recipeTitle: String,
             recipeId: Number,
@@ -18,24 +18,24 @@ var RecipeModel = (function () {
             protein: Number,
             fat: Number,
             carbs: Number,
-            sugar: Number
+            sugar: Number,
+            created_by: String
         }, { collection: 'recipes' });
-    };
-    RecipeModel.prototype.createModel = function () {
+    }
+    createModel() {
         this.model = mongooseConnection.model("Recipes", this.schema);
-    };
-    RecipeModel.prototype.retrieveAllRecipes = function (response) {
+    }
+    retrieveAllRecipes(response) {
         var query = this.model.find({});
-        query.exec(function (err, itemArray) {
+        query.exec((err, itemArray) => {
             response.json(itemArray);
         });
-    };
-    RecipeModel.prototype.retrieveSingleRecipe = function (response, filter) {
+    }
+    retrieveSingleRecipe(response, filter) {
         var query = this.model.findOne(filter);
-        query.exec(function (err, itemArray) {
+        query.exec((err, itemArray) => {
             response.json(itemArray);
         });
-    };
-    return RecipeModel;
-}());
-exports["default"] = RecipeModel;
+    }
+}
+exports.default = RecipeModel;

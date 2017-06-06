@@ -1,31 +1,31 @@
 import Mongoose= require('mongoose');
 import DataAccess from '../DataAccess';
-import IUserModel from '..interfaces/IUserModel';
+import IUserModel from '../interfaces/IUserModel';
 
 var mongoose= DataAccess.mongooseInstance;
 var mongooseConnection= DataAccess.mongooseConnection;
 
 export default class UserModel{
     public schema: Mongoose.Schema;
-    public model:any
+    public model:any;
 
     public constructor(){
         this.createSchema();
         this.createModel();
     }
 
-    public.createSchema(): void{
+    public createSchema(): void{
         this.schema=mongoose.Schema(
             {
                 userId: String,
                 name: String,
-                password: String,
+                password: String
             }, {collection: 'user'}
         );
     }
 
     public createModel(): void{
-        this.model=mongooseConnection..model<IUserModel>("User", this.schema);
+        this.model=mongooseConnection.model<IUserModel>("User", this.schema);
     }
 
     public retrieveUserDetails(response: any, filter:Object){
@@ -35,7 +35,7 @@ export default class UserModel{
         });
     }
 
-    public retrieveAllUsers(reponse:any, filter:Object){
+    public retrieveAllUsers(response:any, filter:Object){
         var query= this.model.find(filter);
         query.exec( (err, userList) => {
             response.json(userList);

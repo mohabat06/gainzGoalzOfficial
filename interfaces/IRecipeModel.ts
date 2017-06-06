@@ -10,6 +10,6 @@ interface IRecipeModel extends Mongoose.Document {
     fat: number;
     carbs: number;
     sugar: number;
-    created_by: userId;
+    created_by: string;
 }
 export default IRecipeModel;
