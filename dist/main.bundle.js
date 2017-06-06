@@ -614,7 +614,7 @@ var AddRecipeComponent = (function () {
                 recipeTitle: 'Test',
                 recipeId: 400,
                 ingredients: 'Testing Stuff',
-                instructions: 'Do nothing',
+                instructions: this.createdUser,
                 calories: 500,
                 protein: 30,
                 fat: 20,
