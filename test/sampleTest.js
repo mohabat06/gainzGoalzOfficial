@@ -9,14 +9,14 @@ var should = chai.should();
 var http = require('http');
 chai.use(chaiHttp);
 
-describe('Test To Do lists result', function () {
+describe('Gainz Goalz Recipe List Results', function () {
 //	this.timeout(15000);
 
 	var requestResult;
 	var response;
 		 
     before(function (done) {
-        chai.request("http://gainzgoalzzz/azurewebsite.net")
+        chai.request("http://gainzgoalzzz/azurewebsites.net")
 			.get("/app/recipe")
 			.end(function (err, res) {
 				requestResult = res.body;
